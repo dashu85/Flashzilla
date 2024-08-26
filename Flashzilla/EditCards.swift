@@ -22,7 +22,7 @@ struct EditCards: View {
                     Button("Add card", action: addCard)
                 }
                 
-                Section {
+                Section("Recently added") {
                     ForEach(0..<cards.count, id: \.self) { index in
                         VStack(alignment: .leading) {
                             Text(cards[index].prompt)
@@ -47,17 +47,30 @@ struct EditCards: View {
     }
     
     func loadData() {
-        if let data = UserDefaults.standard.data(forKey: "Cards") {
-            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
-                cards = decoded
+        let decoder = JSONDecoder()
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = documentsDirectory.appendingPathComponent("Cards")
+        
+        if let data = try? Data(contentsOf: url){
+            if let decodedCards = try? decoder.decode([Card].self, from: data){
+                cards = decodedCards
             }
         }
     }
     
     func saveData() {
-        if let data = try? JSONEncoder().encode(cards) {
-            UserDefaults.standard.set(data, forKey: "Cards")
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = documentsDirectory.appendingPathComponent("Cards")
+        let encoder = JSONEncoder()
+        do {
+            let encodedCards = try encoder.encode(cards)
+            try encodedCards.write(to: url,options: [.atomic,.completeFileProtection])
+        } catch {
+            print("Saving Error")
         }
+        
+        newAnswer = ""
+        newPrompt = ""
     }
     
     func addCard() {
@@ -65,11 +78,10 @@ struct EditCards: View {
         let trimmpedAnswer = newAnswer.trimmingCharacters(in: .whitespaces)
         guard trimmedPrompt.isEmpty == false && trimmpedAnswer.isEmpty == false else { return }
         
-        let card = Card(prompt: trimmedPrompt, answer: trimmpedAnswer)
+        let card = Card(id: UUID(), prompt: trimmedPrompt, answer: trimmpedAnswer)
         cards.insert(card, at: 0)
         saveData()
-        newAnswer = ""
-        newPrompt = ""
+        
     }
     
     func removeCards(at offsets: IndexSet) {

@@ -12,32 +12,28 @@ struct CardView: View {
     @Environment(\.accessibilityVoiceOverEnabled) var accessibilityVoiceOverEnabled
     
     let card: Card
-    var removal: (() -> Void)? = nil
+    var removal: ((Bool) -> Void)? = nil
     
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
+    
+    @State var offsetWidthOverZero = false
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .fill(
-                    .white
+                    accessibilityDifferentiateWithoutColor
+                    ? .white
+                    : .white
                         .opacity(1 - Double(abs(offset.width / 50)))
+                    
                 )
                 .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(
-                            accessibilityDifferentiateWithoutColor
-                            ? .white
-                            : .white
-                                .opacity(1 - Double(abs(offset.width / 50)))
-                        )
-                        .background(
-                            accessibilityDifferentiateWithoutColor
-                            ? nil
-                            : RoundedRectangle(cornerRadius: 25)
-                                .fill(offset.width > 0 ? .white : .red)
-                        )
+                    accessibilityDifferentiateWithoutColor
+                    ? nil
+                    : RoundedRectangle(cornerRadius: 25)
+                        .fill(offsetWidthOverZero ? .green : .red)
                 )
                 .shadow(radius: 10)
             
@@ -71,24 +67,41 @@ struct CardView: View {
             DragGesture()
                 .onChanged { gesture in
                     offset = gesture.translation
-                    print(offset)
+                    if offset.width > 0 {
+                        offsetWidthOverZero = true
+                    } else {
+                        offsetWidthOverZero = false
+                    }
                 }
                 .onEnded { _ in
                     if abs(offset.width) > 100 {
+                        var correct: Bool
+                        
+                        if offset.width > 0 {
+                            correct = true
+                        } else {
+                            correct = false
+                        }
                         // remove the card
-                        removal?() // question mark means the closure will only be called when it is set!
+                        print(correct)
+                        self.removal?(correct) // question mark means the closure will only be called when it is set!
+                        print("self.removal?(\(correct))")
                     } else {
                         offset = .zero
                     }
-                    print("second: \(offset)")
+                    
+                    if offset.width > 0 {
+                        offsetWidthOverZero = true
+                    }
                 }
         )
         .onTapGesture {
             isShowingAnswer.toggle()
         }
-        .animation(.bouncy, value: offset)
+        .animation(.spring(), value: offset)
     }
 }
+
 
 #Preview {
     CardView(card: .example)
