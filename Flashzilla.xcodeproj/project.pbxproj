@@ -11,6 +11,18 @@
 		2977C31B2C6A1E4600599EA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C31A2C6A1E4600599EA5 /* ContentView.swift */; };
 		2977C31D2C6A1E4800599EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2977C31C2C6A1E4800599EA5 /* Assets.xcassets */; };
 		2977C3212C6A1E4800599EA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2977C3202C6A1E4800599EA5 /* Preview Assets.xcassets */; };
+		2977C3282C6A211900599EA5 /* Longpress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3272C6A211900599EA5 /* Longpress.swift */; };
+		2977C32A2C6A223A00599EA5 /* MagnifyiGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3292C6A223A00599EA5 /* MagnifyiGesture.swift */; };
+		2977C32C2C6A245B00599EA5 /* RotateGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C32B2C6A245B00599EA5 /* RotateGesture.swift */; };
+		2977C32E2C6A275A00599EA5 /* PriorityGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C32D2C6A275A00599EA5 /* PriorityGestures.swift */; };
+		2977C3302C6A2A8F00599EA5 /* GestureSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C32F2C6A2A8F00599EA5 /* GestureSequence.swift */; };
+		2977C3342C6B87BF00599EA5 /* HitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3332C6B87BF00599EA5 /* HitTesting.swift */; };
+		2977C3362C6B917400599EA5 /* TimerTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3352C6B917400599EA5 /* TimerTrigger.swift */; };
+		2977C3382C6CC78000599EA5 /* MovedToBackgroundNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3372C6CC78000599EA5 /* MovedToBackgroundNotification.swift */; };
+		2977C33A2C6CCCC800599EA5 /* AccessibilitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C3392C6CCCC800599EA5 /* AccessibilitySupport.swift */; };
+		2977C33C2C6E3EF000599EA5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33B2C6E3EF000599EA5 /* Card.swift */; };
+		2977C33E2C6E403700599EA5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33D2C6E403700599EA5 /* CardView.swift */; };
+		2977C3402C76091300599EA5 /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33F2C76091300599EA5 /* EditCards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +32,18 @@
 		2977C31C2C6A1E4800599EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2977C31E2C6A1E4800599EA5 /* Flashzilla.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashzilla.entitlements; sourceTree = "<group>"; };
 		2977C3202C6A1E4800599EA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2977C3272C6A211900599EA5 /* Longpress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Longpress.swift; sourceTree = "<group>"; };
+		2977C3292C6A223A00599EA5 /* MagnifyiGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyiGesture.swift; sourceTree = "<group>"; };
+		2977C32B2C6A245B00599EA5 /* RotateGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateGesture.swift; sourceTree = "<group>"; };
+		2977C32D2C6A275A00599EA5 /* PriorityGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityGestures.swift; sourceTree = "<group>"; };
+		2977C32F2C6A2A8F00599EA5 /* GestureSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureSequence.swift; sourceTree = "<group>"; };
+		2977C3332C6B87BF00599EA5 /* HitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTesting.swift; sourceTree = "<group>"; };
+		2977C3352C6B917400599EA5 /* TimerTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTrigger.swift; sourceTree = "<group>"; };
+		2977C3372C6CC78000599EA5 /* MovedToBackgroundNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovedToBackgroundNotification.swift; sourceTree = "<group>"; };
+		2977C3392C6CCCC800599EA5 /* AccessibilitySupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySupport.swift; sourceTree = "<group>"; };
+		2977C33B2C6E3EF000599EA5 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2977C33D2C6E403700599EA5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2977C33F2C76091300599EA5 /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +60,14 @@
 		2977C30C2C6A1E4600599EA5 = {
 			isa = PBXGroup;
 			children = (
+				2977C33F2C76091300599EA5 /* EditCards.swift */,
+				2977C33D2C6E403700599EA5 /* CardView.swift */,
+				2977C3372C6CC78000599EA5 /* MovedToBackgroundNotification.swift */,
+				2977C3392C6CCCC800599EA5 /* AccessibilitySupport.swift */,
+				2977C32D2C6A275A00599EA5 /* PriorityGestures.swift */,
+				2977C32F2C6A2A8F00599EA5 /* GestureSequence.swift */,
+				2977C3332C6B87BF00599EA5 /* HitTesting.swift */,
+				2977C3352C6B917400599EA5 /* TimerTrigger.swift */,
 				2977C3172C6A1E4600599EA5 /* Flashzilla */,
 				2977C3162C6A1E4600599EA5 /* Products */,
 			);
@@ -54,6 +86,10 @@
 			children = (
 				2977C3182C6A1E4600599EA5 /* FlashzillaApp.swift */,
 				2977C31A2C6A1E4600599EA5 /* ContentView.swift */,
+				2977C33B2C6E3EF000599EA5 /* Card.swift */,
+				2977C3292C6A223A00599EA5 /* MagnifyiGesture.swift */,
+				2977C32B2C6A245B00599EA5 /* RotateGesture.swift */,
+				2977C3272C6A211900599EA5 /* Longpress.swift */,
 				2977C31C2C6A1E4800599EA5 /* Assets.xcassets */,
 				2977C31E2C6A1E4800599EA5 /* Flashzilla.entitlements */,
 				2977C31F2C6A1E4800599EA5 /* Preview Content */,
@@ -139,8 +175,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2977C3282C6A211900599EA5 /* Longpress.swift in Sources */,
+				2977C3382C6CC78000599EA5 /* MovedToBackgroundNotification.swift in Sources */,
+				2977C32E2C6A275A00599EA5 /* PriorityGestures.swift in Sources */,
+				2977C3402C76091300599EA5 /* EditCards.swift in Sources */,
+				2977C3302C6A2A8F00599EA5 /* GestureSequence.swift in Sources */,
 				2977C31B2C6A1E4600599EA5 /* ContentView.swift in Sources */,
+				2977C32C2C6A245B00599EA5 /* RotateGesture.swift in Sources */,
 				2977C3192C6A1E4600599EA5 /* FlashzillaApp.swift in Sources */,
+				2977C33E2C6E403700599EA5 /* CardView.swift in Sources */,
+				2977C33C2C6E3EF000599EA5 /* Card.swift in Sources */,
+				2977C3362C6B917400599EA5 /* TimerTrigger.swift in Sources */,
+				2977C33A2C6CCCC800599EA5 /* AccessibilitySupport.swift in Sources */,
+				2977C3342C6B87BF00599EA5 /* HitTesting.swift in Sources */,
+				2977C32A2C6A223A00599EA5 /* MagnifyiGesture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +330,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -320,7 +368,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
