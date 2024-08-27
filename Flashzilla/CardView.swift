@@ -83,9 +83,7 @@ struct CardView: View {
                             correct = false
                         }
                         // remove the card
-                        print(correct)
                         self.removal?(correct) // question mark means the closure will only be called when it is set!
-                        print("self.removal?(\(correct))")
                     } else {
                         offset = .zero
                     }

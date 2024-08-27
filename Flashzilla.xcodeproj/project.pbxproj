@@ -23,6 +23,7 @@
 		2977C33C2C6E3EF000599EA5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33B2C6E3EF000599EA5 /* Card.swift */; };
 		2977C33E2C6E403700599EA5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33D2C6E403700599EA5 /* CardView.swift */; };
 		2977C3402C76091300599EA5 /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977C33F2C76091300599EA5 /* EditCards.swift */; };
+		299125372C7CA8240053147D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299125362C7CA8240053147D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		2977C33B2C6E3EF000599EA5 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2977C33D2C6E403700599EA5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2977C33F2C76091300599EA5 /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
+		299125362C7CA8240053147D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,14 @@
 		2977C30C2C6A1E4600599EA5 = {
 			isa = PBXGroup;
 			children = (
-				2977C33F2C76091300599EA5 /* EditCards.swift */,
-				2977C33D2C6E403700599EA5 /* CardView.swift */,
 				2977C3372C6CC78000599EA5 /* MovedToBackgroundNotification.swift */,
 				2977C3392C6CCCC800599EA5 /* AccessibilitySupport.swift */,
 				2977C32D2C6A275A00599EA5 /* PriorityGestures.swift */,
 				2977C32F2C6A2A8F00599EA5 /* GestureSequence.swift */,
 				2977C3332C6B87BF00599EA5 /* HitTesting.swift */,
+				2977C3292C6A223A00599EA5 /* MagnifyiGesture.swift */,
 				2977C3352C6B917400599EA5 /* TimerTrigger.swift */,
+				2977C3272C6A211900599EA5 /* Longpress.swift */,
 				2977C3172C6A1E4600599EA5 /* Flashzilla */,
 				2977C3162C6A1E4600599EA5 /* Products */,
 			);
@@ -87,9 +89,10 @@
 				2977C3182C6A1E4600599EA5 /* FlashzillaApp.swift */,
 				2977C31A2C6A1E4600599EA5 /* ContentView.swift */,
 				2977C33B2C6E3EF000599EA5 /* Card.swift */,
-				2977C3292C6A223A00599EA5 /* MagnifyiGesture.swift */,
+				2977C33D2C6E403700599EA5 /* CardView.swift */,
+				2977C33F2C76091300599EA5 /* EditCards.swift */,
 				2977C32B2C6A245B00599EA5 /* RotateGesture.swift */,
-				2977C3272C6A211900599EA5 /* Longpress.swift */,
+				299125362C7CA8240053147D /* Extensions.swift */,
 				2977C31C2C6A1E4800599EA5 /* Assets.xcassets */,
 				2977C31E2C6A1E4800599EA5 /* Flashzilla.entitlements */,
 				2977C31F2C6A1E4800599EA5 /* Preview Content */,
@@ -185,6 +188,7 @@
 				2977C3192C6A1E4600599EA5 /* FlashzillaApp.swift in Sources */,
 				2977C33E2C6E403700599EA5 /* CardView.swift in Sources */,
 				2977C33C2C6E3EF000599EA5 /* Card.swift in Sources */,
+				299125372C7CA8240053147D /* Extensions.swift in Sources */,
 				2977C3362C6B917400599EA5 /* TimerTrigger.swift in Sources */,
 				2977C33A2C6CCCC800599EA5 /* AccessibilitySupport.swift in Sources */,
 				2977C3342C6B87BF00599EA5 /* HitTesting.swift in Sources */,

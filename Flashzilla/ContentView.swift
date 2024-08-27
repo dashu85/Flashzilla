@@ -14,12 +14,14 @@ struct ContentView: View {
     @State private var cards = [Card]()
     
     // timer properties
-    @State private var timeRemaining = 30
+    @State private var timeRemaining = 100
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     // check if app is in background properties
     @Environment(\.scenePhase) var scenePhase
     @State private var isActive = true
+
+    @State private var score = 0
     
     @State private var showingEditingScreen = false
     
@@ -28,40 +30,22 @@ struct ContentView: View {
             Image(decorative: "background")
                 .resizable()
                 .ignoresSafeArea()
+            
             VStack {
-                VStack {
-                    HStack {
-                        Spacer()
-                        
-                        Button {
-                            showingEditingScreen = true
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .padding()
-                                .background(.black.opacity(0.7))
-                                .clipShape(.circle)
-                        }
-                        
-                        Spacer()
-                    }
-                }
-                .foregroundColor(.white)
-                .font(.largeTitle)
-                .padding()
-                
-                if accessibilityDifferentiateWithoutColor || accessibilityVoiceOverEnabled{
+                if accessibilityDifferentiateWithoutColor || accessibilityVoiceOverEnabled {
                     VStack {
                         Spacer()
                         
                         HStack {
                             Button {
                                 withAnimation {
-                                    removeCard(at: cards.count - 1)
+                                    // TODO: remove card
                                 }
                             } label: {
                                 Image(systemName: "xmark.circle")
                                     .padding()
                                     .background(.black.opacity(0.7))
+                                    .font(.largeTitle)
                                     .clipShape(.circle)
                             }
                             .accessibilityLabel("Wrong")
@@ -71,52 +55,94 @@ struct ContentView: View {
                             
                             Button {
                                 withAnimation {
-                                    removeCard(at: cards.count - 1)
+                                    // TODO: remove card
                                 }
                             } label: {
                                 Image(systemName: "checkmark.circle")
                                     .padding()
                                     .background(.black.opacity(0.7))
+                                    .font(.largeTitle)
                                     .clipShape(.circle)
                             }
                             .accessibilityLabel("Correct")
                             .accessibilityHint("Mark your answer as being correct")
-                            
                         }
                     }
                 }
                 
-                Text("Time: \(timeRemaining)")
-                    .font(.largeTitle)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 5)
-                    .background(.black.opacity(0.75))
-                    .clipShape(.capsule)
+                if !accessibilityDifferentiateWithoutColor && !accessibilityVoiceOverEnabled{
+                    HStack {
+
+                        
+                            Text("Time: \(timeRemaining)")
+                                .padding()
+                                .font(.largeTitle)
+                                .background(.black.opacity(0.7))
+                                .clipShape(.capsule)
+                        
+                    }
+                    .padding(.vertical, 10)
+                }
                 
                 ZStack {
-                    ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: cards[index]) {
-                            withAnimation {
-                                removeCard(at: index)
+                    ForEach(cards) { card in
+                        CardView(card: card) { isCorrect in
+                            if !isCorrect {
+                                withAnimation {
+                                    let newCard = Card(id: UUID(), prompt: card.prompt, answer: card.answer)
+                                    cards.remove(at: getIndex(of: card))
+                                    cards.insert(newCard, at: 0)
+                                    score -= 1
+                                }
+                            } else {
+                                withAnimation {
+                                    removeCard(at: getIndex(of: card))
+                                    score += 1
+                                }
                             }
                         }
-                        .stacked(at: index, in: cards.count)
-                        .allowsHitTesting(index == cards.count - 1)
-                        .accessibilityHidden(index < cards.count - 1)
+                        .stacked(at: card, in: cards)
+                        .allowsHitTesting(getIndex(of: card) == cards.count - 1)
+                        .accessibilityHidden(getIndex(of: card) < cards.count - 1)
                     }
                 }
                 .allowsHitTesting(timeRemaining > 0)
-                .padding()
                 
                 if cards.isEmpty {
                     Button("Start again!", action: resetCards)
                         .padding()
+                        .font(.largeTitle)
                         .background(.white)
                         .foregroundStyle(.black)
                         .clipShape(.capsule)
                 }
             }
+            
+            VStack {
+                HStack {
+                    Button {
+                        showingEditingScreen = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(.black.opacity(0.7))
+                            .clipShape(.circle)
+                    }
+                    Spacer()
+                    
+                    Text("Score: \(score)")
+                        .padding()
+                        .font(.largeTitle)
+                        .background(.white)
+                        .foregroundStyle(.black)
+                        .clipShape(.capsule)
+                }
+                
+                Spacer()
+            }
+            .foregroundStyle(.white)
+            .font(.largeTitle)
+            .padding()
         }
         .onReceive(timer) { time in
             guard isActive else { return }
@@ -140,7 +166,6 @@ struct ContentView: View {
     
     func removeCard(at index: Int) {
         guard index >= 0 else { return }
-        
         cards.remove(at: index)
         
         if cards.isEmpty {
@@ -149,24 +174,31 @@ struct ContentView: View {
     }
     
     func loadData() {
-        if let data = UserDefaults.standard.data(forKey: "Cards") {
-            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
-                cards = decoded
+        let decoder = JSONDecoder()
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = documentsDirectory.appendingPathComponent("Cards")
+        
+        if let data = try? Data(contentsOf: url){
+            if let decodedCards = try? decoder.decode([Card].self, from: data){
+                cards = decodedCards
             }
         }
     }
     
     func resetCards() {
-        timeRemaining = 30
+        timeRemaining = 100
         isActive = true
+        score = 0
         loadData()
     }
-}
-
-extension View {
-    func stacked(at position: Int, in total: Int) -> some View {
-        let offset = Double(total - position)
-        return self.offset(y: offset * 10)
+    
+    func getIndex(of card: Card) -> Int {
+        for i in 0...cards.count {
+            if cards[i].id == card.id {
+                return i
+            }
+        }
+        return -1
     }
 }
 
