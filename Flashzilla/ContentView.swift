@@ -72,16 +72,12 @@ struct ContentView: View {
                 
                 if !accessibilityDifferentiateWithoutColor && !accessibilityVoiceOverEnabled{
                     HStack {
-
-                        
-                            Text("Time: \(timeRemaining)")
-                                .padding()
-                                .font(.largeTitle)
-                                .background(.black.opacity(0.7))
-                                .clipShape(.capsule)
-                        
+                        Text("Time: \(timeRemaining)")
+                            .padding()
+                            .font(.largeTitle)
+                            .background(.black.opacity(0.7))
+                            .clipShape(.capsule)
                     }
-                    .padding(.vertical, 10)
                 }
                 
                 ZStack {
@@ -128,6 +124,7 @@ struct ContentView: View {
                             .background(.black.opacity(0.7))
                             .clipShape(.circle)
                     }
+                    
                     Spacer()
                     
                     Text("Score: \(score)")
